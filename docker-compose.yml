@@ -1,0 +1,11 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: reverx
+    extra_hosts:
+      - "host.local:host-gateway"
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./projects:/etc/nginx/conf.d:ro
